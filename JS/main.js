@@ -119,24 +119,139 @@ skillCategories.forEach(category => {
 });
 
     // 首頁輪播圖片
-    var mySwiper1 = new Swiper('.index-news .swiper', {
-        autoplay: false,
-        speed: 800,
-        autoHeight: true,
-        loop: true,
-        pagination: {
-            el: '.index-news .swiper-pagination',
-            clickable: true
-        },
-        on: {
-            slideChangeTransitionEnd: function () {
-                // 给焦点轮播图添加滚动字幕效果
-                $('.index-news .akiswiper .desc').removeClass('active')
-                $('.index-news .akiswiper .swiper-slide-active .desc').addClass('active')
+       
+// 加載新聞數據
+async function loadNewsData() {
+    try {
+        const response = await fetch('./data/news.json');
+        const data = await response.json();
+        return data.slides;
+    } catch (error) {
+        console.error('加載數據失敗：', error);
+        return [];
+    }
+}
 
-                // 给焦点轮播图添加对应的标题和日期
-                $('.index-news .news-aki-time').html($('.index-news .swiper-slide-active .hidden-time').html())
-                $('.index-news .news-aki-title').html($('.index-news .swiper-slide-active .hidden-title').html())
-            },
-        },
+// 初始化輪播
+async function initializeSwiper() {
+    const slides = await loadNewsData();
+    const sliderContainer = document.getElementById('newsSlider');
+    
+    // 確保 sliderContainer 存在
+    if (!sliderContainer) {
+        console.error('無法找到 sliderContainer 元素');
+        return;
+    }
+
+    // 生成輪播內容
+    slides.forEach(slide => {
+        const slideHTML = `
+            <div class="swiper-slide">
+                <a href="javascript:;">
+                    <img src="${slide.image}" alt="${slide.title}" />
+                    <div class="layer">
+                        <div class="desc">${slide.desc}</div>
+                        <div class="hidden-time">${slide.time}</div>
+                        <div class="hidden-title">${slide.title}</div>
+                    </div>
+                </a>
+            </div>
+        `;
+        sliderContainer.innerHTML += slideHTML;
     });
+
+    // 初始化 Swiper - 實現無縫輪播
+    if (!window.mySwiper1) { // 確保只初始化一次
+        window.mySwiper1 = new Swiper('.akiswiper', {
+            autoplay: {
+                delay: 15000,
+                disableOnInteraction: false
+            },
+            speed: 800,
+            autoHeight: true,
+            loop: true,
+            loopAdditionalSlides: 2, // 前後多複製幾個slide，保證無縫
+            slidesPerView: 'auto', // 根據容器寬度自動調整顯示數量
+            centeredSlides: true, // 居中顯示
+            effect: 'slide', // 使用滑動效果
+            watchSlidesProgress: true, // 監視slide的progress
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+                bulletClass: 'swiper-pagination-bullet',
+                bulletActiveClass: 'swiper-pagination-bullet-active'
+            },
+            on: {
+                init: function () {
+                    // 在初始化時觸發動畫
+                    const activeDesc = document.querySelector('.swiper-slide-active .desc');
+                    if (activeDesc) {
+                        activeDesc.classList.add('active');
+                    }
+                },
+                slideChange: function () {
+                    updateProjectDetails(slides[this.realIndex]);
+                },
+                slideChangeTransitionEnd: function () {
+                    try {
+                        // 獲取當前幻燈片索引（從0開始）
+                        const currentIndex = this.realIndex;
+                        const totalSlides = this.slides.length - this.loopedSlides * 2;
+                        console.log(`當前是第 ${currentIndex + 1}/${totalSlides} 張`);
+
+                        // 更新描述的活動狀態
+                        const descriptions = document.querySelectorAll('.akiswiper .desc');
+                        descriptions.forEach(desc => desc.classList.remove('active'));
+                        
+                        const activeDesc = document.querySelector('.swiper-slide-active .desc');
+                        if (activeDesc) {
+                            activeDesc.classList.add('active');
+                        }
+
+                        // 更新時間和標題
+                        const activeSlide = document.querySelector('.swiper-slide-active');
+                        const timeElement = document.querySelector('.news-aki-time');
+                        const titleElement = document.querySelector('.news-aki-title');
+
+                        if (activeSlide && timeElement && titleElement) {
+                            const time = activeSlide.querySelector('.hidden-time');
+                            const title = activeSlide.querySelector('.hidden-title');
+                            
+                            if (time) timeElement.textContent = time.textContent;
+                            if (title) titleElement.textContent = title.textContent;
+                        }
+                    } catch (error) {
+                        console.error('輪播更新出錯：', error);
+                    }
+                }
+            }
+        });
+    }
+}
+
+// 更新項目詳情
+function updateProjectDetails(slide) {
+    const details = document.getElementById('projectDetails');
+    if (!details || !slide) return;
+
+    details.querySelector('.featured-number').textContent = slide.number;
+    details.querySelector('.featured-category').textContent = slide.category;
+    details.querySelector('.featured-title').textContent = slide.title;
+    details.querySelector('.featured-description').textContent = slide.description;
+
+    const techStack = details.querySelector('.tech-stack');
+    techStack.innerHTML = slide.tech.map(tech => 
+        `<span class="tech-tag">${tech}</span>`
+    ).join('');
+
+    // 動態生成連結
+    const linksContainer = document.getElementById('featuredLinks');
+    linksContainer.innerHTML = `
+        <a href="${slide.demoLink}" class="btn" target="_blank">查看demo</a>
+        <a href="${slide.codeLink}" class="project-link" target="_blank">查看CODE</a>
+    `;
+}
+
+// 當 DOM 加載完成後初始化
+document.addEventListener('DOMContentLoaded', initializeSwiper);
+    
