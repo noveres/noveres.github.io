@@ -148,6 +148,73 @@ nav {
     width: 100%;
 }
 
+/* 漢堡選單 */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 21px;
+    cursor: pointer;
+    z-index: 1001;
+}
+
+.menu-toggle span {
+    display: block;
+    height: 3px;
+    width: 100%;
+    background-color: var(--text);
+    border-radius: 3px;
+    transition: var(--transition);
+}
+
+.menu-toggle.active span:nth-child(1) {
+    transform: translateY(9px) rotate(45deg);
+}
+
+.menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-toggle.active span:nth-child(3) {
+    transform: translateY(-9px) rotate(-45deg);
+}
+
+.mobile-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: var(--darker);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    transform: translateY(-100%);
+    transition: transform 0.4s ease-in-out;
+}
+
+.mobile-nav.active {
+    transform: translateY(0);
+}
+
+.mobile-nav a {
+    color: var(--text);
+    text-decoration: none;
+    font-size: 1.5rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin: 1.5rem 0;
+    transition: var(--transition);
+}
+
+.mobile-nav a:hover {
+    color: var(--primary);
+}
+
 /* hero */
 .hero {
     height: 100vh;
@@ -897,7 +964,7 @@ footer::before {
 }
 
 .index-news .news-left .akiswiper .layer .desc {
-    transform: translateX(704.832px);
+    transform: translateX(800.832px);
 }
 
 .index-news .news-left .akiswiper .layer .desc.active {
@@ -906,7 +973,7 @@ footer::before {
 
 @keyframes wordsLoop {
     0% {
-        transform: translateX(704.832px);
+        transform: translateX(800.832px);
     }
 
     100% {
@@ -963,9 +1030,42 @@ footer::before {
     background: var(--secondary);
 }
 
+/* 輪播導航按鈕樣式 */
+.swiper-button-next,
+.swiper-button-prev {
+    width: 40px;
+    height: 40px;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 50%;
+    color: #fff;
+    transition: all 0.3s ease;
+}
+
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+    background-color: var(--primary);
+    transform: scale(1.1);
+}
+
+.swiper-button-next:after,
+.swiper-button-prev:after {
+    font-size: 18px;
+    font-weight: bold;
+}
 
 /* 響應式設計 */
+@media (max-width: 1400px) {
+    .container {
+        max-width: 1200px;
+    }
+   
+}
+
 @media (max-width: 1200px) {
+    .container {
+        max-width: 992px;
+    }
+    
     .hero h1 {
         font-size: 5rem;
     }
@@ -978,15 +1078,49 @@ footer::before {
     .featured-number {
         display: none;
     }
+    
+    .section-title h2 {
+        font-size: 3.5rem;
+    }
+    
+    .about-content h3,
+    .contact-info h3,
+    .featured-title {
+        font-size: 2.5rem;
+    }
+    .index-news .news-left .akiswiper .layer .desc {
+        transform: translateX(99vw);
+    }
+    @keyframes wordsLoop {
+        0% {
+            transform: translateX(99vw);
+        }
+    
+      100% {
+            transform: translateX(-100%);
+        }
+    }  
 }
 
 @media (max-width: 992px) {
+    .container {
+        max-width: 768px;
+    }
+    
     .section {
         padding: 4rem 0;
     }
     
     .hero h1 {
         font-size: 4rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1rem;
+    }
+    
+    .hero-description {
+        font-size: 1.1rem;
     }
     
     .about-grid,
@@ -998,27 +1132,250 @@ footer::before {
     .projects-grid {
         grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     }
+    
+    .project-title {
+        font-size: 1.5rem;
+    }
+    
+    .skill-category {
+        padding: 1.5rem;
+    }
+    
+    .contact-form {
+        padding: 2rem;
+    }
 }
 
 @media (max-width: 768px) {
+    .container {
+        max-width: 100%;
+        padding: 0 1.5rem;
+    }
+    
     .nav-links {
         display: none;
+    }
+    
+    .menu-toggle {
+        display: flex;
+    }
+    
+    .hero {
+        height: auto;
+        min-height: 100vh;
+        padding: 6rem 0 4rem;
     }
     
     .hero h1 {
         font-size: 3rem;
     }
     
+    .hero-subtitle {
+        font-size: 0.9rem;
+        letter-spacing: 2px;
+    }
+    
+    .hero-description {
+        font-size: 1rem;
+    }
+    
+ 
+    .section {
+        padding: 3rem 0;
+    }
+    
+    .section-title {
+        margin-bottom: 2.5rem;
+    }
+    
     .section-title h2 {
-        font-size: 3rem;
+        font-size: 2.5rem;
+    }
+    
+    .section-title::after {
+        width: 40px;
+        height: 10px;
+        bottom: 10px;
     }
     
     .projects-grid {
         grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .project-image {
+        height: 250px;
+    }
+    
+    .project-title {
+        font-size: 1.3rem;
+    }
+    
+    .project-overlay {
+        padding: 1.5rem;
+    }
+    
+    .featured-title {
+        font-size: 2rem;
+    }
+    
+    .featured-category {
+        font-size: 0.9rem;
+    }
+    
+    .featured-description {
+        font-size: 0.9rem;
     }
     
     .skills-container {
         grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .skill-category {
+        padding: 1.5rem;
+    }
+    
+    .skill-category h4 {
+        font-size: 1.3rem;
+    }
+    
+    .about-content h3 {
+        font-size: 2rem;
+    }
+    
+    .contact-form {
+        padding: 1.5rem;
+    }
+    
+    .contact-info h3 {
+        font-size: 2rem;
+    }
+    
+    .footer-links {
+        flex-wrap: wrap;
+        gap: 1rem;
+    }
+    
+    .social-links {
+        gap: 1rem;
+    }
+    
+    .social-link {
+        width: 40px;
+        height: 40px;
+    }
+    
+    /* 輪播區域響應式調整 */
+    .swiper-pagination span {
+        width: 18px;
+        height: 18px;
+        margin: 0 15px 0 0 !important;
+        border-width: 3px;
+    }
+    
+    .index-news .news-left .akiswiper .layer {
+        height: 36px;
+        font-size: 20px;
+    }
+    
+    /* 表單元素響應式調整 */
+    .form-control {
+        padding: 0.8rem;
+    }
+    
+    .projects-filter {
+        justify-content: center;
+    }
+    
+    .filter-btn {
+        padding: 0.4rem 1rem;
+        font-size: 0.8rem;
+        margin-bottom: 0.5rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .container {
+        padding: 0 1rem;
+    }
+    
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+    
+    .hero h1 span::after {
+        height: 10px;
+        bottom: 10px;
+    }
+    
+    .hero-subtitle {
+        font-size: 0.8rem;
+        letter-spacing: 1.5px;
+        margin-bottom: 1rem;
+    }
+    
+    .hero-description {
+        font-size: 0.9rem;
+        margin-bottom: 2rem;
+    }
+    
+
+    .section-title h2 {
+        font-size: 2rem;
+    }
+    
+    .project-image {
+        height: 200px;
+    }
+    
+    .project-title {
+        font-size: 1.2rem;
+    }
+    
+    .featured-title {
+        font-size: 1.8rem;
+    }
+    
+    .about-content h3,
+    .contact-info h3 {
+        font-size: 1.8rem;
+    }
+    
+    .skill-category h4 {
+        font-size: 1.2rem;
+    }
+    
+    .contact-item {
+        margin-bottom: 1rem;
+    }
+    
+    .contact-icon {
+        width: 40px;
+        height: 40px;
+        margin-right: 1rem;
+        font-size: 1rem;
+    }
+    
+    .footer-logo {
+        font-size: 2rem;
+    }
+    
+    .copyright {
+        font-size: 0.8rem;
+    }
+    
+    /* 輪播區域超小螢幕調整 */
+    .swiper-pagination span {
+        width: 15px;
+        height: 15px;
+        margin: 0 10px 0 0 !important;
+        border-width: 2px;
+    }
+    
+    .index-news .news-left .akiswiper .layer {
+        height: 30px;
+        font-size: 16px;
     }
 }
 

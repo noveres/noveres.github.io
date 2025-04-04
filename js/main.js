@@ -164,7 +164,7 @@ async function initializeSwiper() {
     if (!window.mySwiper1) { // 確保只初始化一次
         window.mySwiper1 = new Swiper('.akiswiper', {
             autoplay: {
-                delay: 15000,
+                delay: 20980,
                 disableOnInteraction: false
             },
             speed: 800,
@@ -175,6 +175,11 @@ async function initializeSwiper() {
             centeredSlides: true, // 居中顯示
             effect: 'slide', // 使用滑動效果
             watchSlidesProgress: true, // 監視slide的progress
+            // 添加左右導航按鈕
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
             pagination: {
                 el: '.swiper-pagination',
                 clickable: true,
@@ -246,10 +251,19 @@ function updateProjectDetails(slide) {
 
     // 動態生成連結
     const linksContainer = document.getElementById('featuredLinks');
-    linksContainer.innerHTML = `
-        <a href="${slide.demoLink}" class="btn" target="_blank">查看demo</a>
-        <a href="${slide.codeLink}" class="project-link" target="_blank">查看CODE</a>
-    `;
+    let linksHTML = '';
+    
+    // 檢查demoLink是否存在且不為空
+    if (slide.demoLink && slide.demoLink.trim() !== '') {
+        linksHTML += `<a href="${slide.demoLink}" class="btn" target="_blank">查看demo</a>`;
+    }
+    
+    // 檢查codeLink是否存在且不為空
+    if (slide.codeLink && slide.codeLink.trim() !== '') {
+        linksHTML += `<a href="${slide.codeLink}" class="project-link" target="_blank">查看CODE</a>`;
+    }
+    
+    linksContainer.innerHTML = linksHTML;
 }
 
 // 當 DOM 加載完成後初始化

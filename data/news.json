@@ -25,7 +25,21 @@
             "tech": ["Unity", "C#", "Blender", "PhotonEngine", "AWS"],
             "demoLink": "https://example.com/demo1",
             "codeLink": "https://github.com/example/repo1"
+        },
+        {
+            "id": 3,
+            "image": "./images/index-news2.png",
+            "desc": "「噢？一个完美的电线杆。」",
+            "time": "07/25/2024",
+            "title": "六分街街头异闻 ",
+            "category": "遊戲開發",
+            "number": "03",
+            "description": "一個開放世界的街頭探索遊戲，融合現代都市與科幻元素。",
+            "tech": ["Unity", "C#", "Blender", "PhotonEngine", "AWS"],
+            "demoLink": "https://example.com/demo1",
+            "codeLink": "https://github.com/example/repo1"
         }
+
       
     ]
 }
