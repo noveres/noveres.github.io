@@ -1377,6 +1377,13 @@ footer::before {
         height: 30px;
         font-size: 16px;
     }
+    .project-link {
+        padding: 1rem 1.5rem;
+
+    }
+    .btn{
+        padding: 1rem 1.5rem;
+    }
 }
 
 
