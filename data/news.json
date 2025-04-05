@@ -15,16 +15,16 @@
         },
         {
             "id": 2,
-            "image": "./images/index-news2.png",
-            "desc": "「噢？一个完美的电线杆。」",
+            "image": "./images/index.png",
+            "desc": "「噢？難以想像的動態表單編輯體驗」",
             "time": "07/25/2024",
-            "title": "六分街街头异闻 ",
-            "category": "遊戲開發",
+            "title": "QuickForms動態問卷 ",
+            "category": "應用開發",
             "number": "02",
-            "description": "一個開放世界的街頭探索遊戲，融合現代都市與科幻元素。",
-            "tech": ["Unity", "C#", "Blender", "PhotonEngine", "AWS"],
+            "description": "一個類似google表單類的動態問卷工具，易於拓展的前後端分離項目。",
+            "tech": ["Angular", "JAVA", "SpringBoot", "MySQL", "RESTful API"],
             "demoLink": "https://example.com/demo1",
-            "codeLink": "https://github.com/example/repo1"
+            "codeLink": "https://github.com/noveres/QuickForms"
         },
         {
             "id": 3,
