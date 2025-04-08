@@ -55,10 +55,10 @@ const contactForm = document.querySelector('#contactForm');
 if (contactForm) {
     // 在頁面加載時初始化 EmailJS
     (function() {
-        emailjs.init("u7RkLiYmEbw9HZnFd", { publicKey: true });
+        emailjs.init("u7RkLiYmEbw9HZnFd");
     })();
 
-    contactForm.addEventListener('submit', async (e) => {
+    contactForm.addEventListener('submit', (e) => {
         e.preventDefault();
         
         // 獲取表單數據
@@ -97,30 +97,35 @@ if (contactForm) {
         submitBtn.textContent = '發送中...';
         submitBtn.disabled = true;
 
-        try {
-            // 使用 EmailJS 發送郵件
-            const response = await emailjs.send(
-                "service_7obfipk",
-                "template_r1pya8g",
-                {
-                    from_name: name,
-                    from_email: email,
-                    subject: subject,
-                    message: message,
-                    to_name: "網站管理員"
-                }
-            );
+        // 準備要發送的參數
+        const templateParams = {
+            from_name: name,
+            from_email: email,
+            subject: subject,
+            message: message
+        };
 
-            console.log('郵件發送成功!', response.status, response.text);
-            alert('表單提交成功！我們會盡快回覆您。');
-            contactForm.reset();
-        } catch (error) {
-            console.error('郵件發送失敗:', error);
-            alert('發送失敗，請稍後再試或直接聯繫我們。');
-        } finally {
-            submitBtn.textContent = originalBtnText;
-            submitBtn.disabled = false;
-        }
+        // 使用 EmailJS 發送郵件
+        emailjs.send("service_7obfipk", "template_r1pya8g", {
+            from_name: name,
+            from_email: email,
+            subject: subject,
+            message: message,
+            to_name: "網站管理員"
+        }, "u7RkLiYmEbw9HZnFd")  // 添加 public key 作為第四個參數
+            .then(function(response) {
+                console.log('郵件發送成功!', response.status, response.text);
+                alert('表單提交成功！我們會盡快回覆您。');
+                contactForm.reset();
+            })
+            .catch(function(error) {
+                console.error('郵件發送失敗:', error);
+                alert('發送失敗，請稍後再試或直接聯繫我們。');
+            })
+            .finally(() => {
+                submitBtn.textContent = originalBtnText;
+                submitBtn.disabled = false;
+            });
     });
 }
 
