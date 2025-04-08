@@ -2,14 +2,14 @@
     "slides": [
         {
             "id": 1,
-            "image": "./images/index-news1.png",
-            "desc": "等到又一颗月也沉入杯底…",
+            "image": "./images/mis-news1.png",
+            "desc": "這不是遊戲，而是你無法登出的噩夢。",
             "time": "07/25/2024",
-            "title": "潮流購物平台",
-            "category": "電子商務",
+            "title": "虛擬實境恐怖遊戲",
+            "category": "遊戲軟體",
             "number": "01",
             "description": "一款充滿未來感的音樂體驗平台，結合虛擬偶像與音樂串流服務。",
-            "tech": ["Web Audio API", "Three.js", "Node.js", "MongoDB"],
+            "tech": ["Unreal", "C++","blueprint","PhotoShop"],
             "demoLink": "https://example.com/demo1",
             "codeLink": "https://github.com/example/repo1"
         },
@@ -18,10 +18,10 @@
             "image": "./images/index.png",
             "desc": "「噢？難以想像的動態表單編輯體驗」",
             "time": "07/25/2024",
-            "title": "QuickForms動態問卷 ",
+            "title": "動態問卷表單系統 ",
             "category": "應用開發",
             "number": "02",
-            "description": "一個類似google表單類的動態問卷工具，易於拓展的前後端分離項目。",
+            "description": "QuickForms是一個類似google表單類的動態問卷工具",
             "tech": ["Angular", "JAVA", "SpringBoot", "MySQL", "RESTful API"],
             "demoLink": "https://example.com/demo1",
             "codeLink": "https://github.com/noveres/QuickForms"
