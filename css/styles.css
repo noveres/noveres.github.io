@@ -86,6 +86,7 @@ header {
     z-index: 1000;
     background-color: rgba(18, 18, 18, 0.95);
     backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     transition: var(--transition);
 }
@@ -1027,7 +1028,7 @@ footer::before {
 
  .swiper-pagination span.swiper-pagination-bullet-active {
     border-color: #323333;
-    background: var(--secondary);
+    background: var(--primary);
 }
 
 /* 輪播導航按鈕樣式 */

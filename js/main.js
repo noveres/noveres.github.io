@@ -51,16 +51,21 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // 表單驗證
-const contactForm = document.querySelector('.contact-form');
+const contactForm = document.querySelector('#contactForm');
 if (contactForm) {
+    // 在頁面加載時初始化 EmailJS
+    (function() {
+        emailjs.init("u7RkLiYmEbw9HZnFd");
+    })();
+
     contactForm.addEventListener('submit', (e) => {
         e.preventDefault();
         
         // 獲取表單數據
-        const formData = new FormData(contactForm);
-        const name = formData.get('name');
-        const email = formData.get('email');
-        const message = formData.get('message');
+        const name = contactForm.elements['name'].value;
+        const email = contactForm.elements['email'].value;
+        const subject = contactForm.elements['subject'].value;
+        const message = contactForm.elements['message'].value;
 
         // 簡單的表單驗證
         let isValid = true;
@@ -86,9 +91,41 @@ if (contactForm) {
             return;
         }
 
-        // 如果驗證通過，可以在這裡添加發送表單的邏輯
-        alert('表單提交成功！我們會盡快回覆您。');
-        contactForm.reset();
+        // 顯示發送中提示
+        const submitBtn = contactForm.querySelector('button[type="submit"]');
+        const originalBtnText = submitBtn.textContent;
+        submitBtn.textContent = '發送中...';
+        submitBtn.disabled = true;
+
+        // 準備要發送的參數
+        const templateParams = {
+            from_name: name,
+            from_email: email,
+            subject: subject,
+            message: message
+        };
+
+        // 使用 EmailJS 發送郵件
+        emailjs.send("service_7obfipk", "template_r1pya8g", {
+            from_name: name,
+            from_email: email,
+            subject: subject,
+            message: message,
+            to_name: "網站管理員"
+        }, "u7RkLiYmEbw9HZnFd")  // 添加 public key 作為第四個參數
+            .then(function(response) {
+                console.log('郵件發送成功!', response.status, response.text);
+                alert('表單提交成功！我們會盡快回覆您。');
+                contactForm.reset();
+            })
+            .catch(function(error) {
+                console.error('郵件發送失敗:', error);
+                alert('發送失敗，請稍後再試或直接聯繫我們。');
+            })
+            .finally(() => {
+                submitBtn.textContent = originalBtnText;
+                submitBtn.disabled = false;
+            });
     });
 }
 
