@@ -8,8 +8,68 @@ window.addEventListener('scroll', () => {
     }
 });
 
-// 項目過濾功能
-document.addEventListener('DOMContentLoaded', () => {
+// 載入專案數據
+async function loadProjectsData() {
+    try {
+        const response = await fetch('./data/projects.json');
+        const data = await response.json();
+        return data.projects;
+    } catch (error) {
+        console.error('載入專案數據失敗：', error);
+        return [];
+    }
+}
+
+// 生成過濾按鈕
+function generateFilterButtons(projects) {
+    const filterContainer = document.getElementById('projectsFilter');
+    const categories = new Set(['all', ...projects.map(project => project.category)]);
+    
+    const buttonsHTML = Array.from(categories).map(category => {
+        const displayName = category === 'all' ? '全部' : 
+                           category === 'web' ? '網站開發' :
+                           category === 'game' ? '遊戲開發' :
+                           category === 'mobile' ? '移動應用' :
+                           category === 'AI' ? 'AI應用' : category;
+        return `
+            <button class="filter-btn ${category === 'all' ? 'active' : ''}" data-category="${category}">
+                ${displayName}
+            </button>
+        `;
+    }).join('');
+    
+    filterContainer.innerHTML = buttonsHTML;
+}
+
+// 生成專案卡片
+function generateProjectCards(projects) {
+    const projectsGrid = document.getElementById('projectsGrid');
+    const cardsHTML = projects.map(project => `
+        <div class="project-card" data-category="${project.category}">
+            <div class="project-image">
+                <img src="${project.image}" alt="${project.title}預覽">
+            </div>
+            <div class="project-overlay">
+                <div class="project-category">${project.display_category}</div>
+                <h3 class="project-title">${project.title}</h3>
+                <div class="project-links">
+                    <a href="${project.demo_link}" class="project-link">DEMO</a>
+                    <a href="${project.code_link}" class="project-link">CODE</a>
+                </div>
+            </div>
+        </div>
+    `).join('');
+    
+    projectsGrid.innerHTML = cardsHTML;
+}
+
+// 初始化專案展示
+document.addEventListener('DOMContentLoaded', async () => {
+    const projects = await loadProjectsData();
+    generateFilterButtons(projects);
+    generateProjectCards(projects);
+
+    // 項目過濾功能
     const filterButtons = document.querySelectorAll('.filter-btn');
     const projectCards = document.querySelectorAll('.project-card');
 

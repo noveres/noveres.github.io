@@ -84,68 +84,12 @@
 
                             
             <div class="projects-container">
-                <div class="projects-filter">
-                    <button class="filter-btn active" data-category="all">全部</button>
-                    <button class="filter-btn" data-category="game">遊戲開發</button>
-                    <button class="filter-btn" data-category="web">網站開發</button>
+                <div class="projects-filter" id="projectsFilter">
+                    <!-- 過濾按鈕將由JavaScript動態生成 -->
                 </div>
                 
-                <div class="projects-grid">
-                    <div class="project-card" data-category="mobile">
-                        <div class="project-image">
-                            <img src="https://images.unsplash.com/photo-1614680376573-df3480f0c6ff?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="遊戲開發預覽">
-                        </div>
-                        <div class="project-overlay">
-                            <div class="project-category">移動應用</div>
-                            <h3 class="project-title">城市天氣應用</h3>
-                            <div class="project-links">
-                                <a href="#" class="project-link">demo</a>
-                                <a href="#" class="project-link">CODE</a>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="project-card" data-category="web">
-                        <div class="project-image">
-                            <img src="https://images.unsplash.com/photo-1522542550221-31fd19575a2d?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="音樂播放器預覽">
-                        </div>
-                        <div class="project-overlay">
-                            <div class="project-category">Web應用</div>
-                            <h3 class="project-title">街頭音樂播放器</h3>
-                            <div class="project-links">
-                                <a href="#" class="project-link">demo</a>
-                                <a href="#" class="project-link">CODE</a>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="project-card" data-category="AI">
-                        <div class="project-image">
-                            <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="數據儀表板預覽">
-                        </div>
-                        <div class="project-overlay">
-                            <div class="project-category">數據可視化</div>
-                            <h3 class="project-title">業務分析儀表板</h3>
-                            <div class="project-links">
-                                <a href="#" class="project-link">DEMO</a>
-                                <a href="#" class="project-link">CODE</a>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="project-card" data-category="mobile">
-                        <div class="project-image">
-                            <img src="https://images.unsplash.com/photo-1512486130939-2c4f79935e4f?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="社交媒體應用預覽">
-                        </div>
-                        <div class="project-overlay">
-                            <div class="project-category">社交媒體</div>
-                            <h3 class="project-title">創意社區平台</h3>
-                            <div class="project-links">
-                                <a href="#" class="project-link">DEMO</a>
-                                <a href="#" class="project-link">CODE</a>
-                            </div>
-                        </div>
-                    </div>
+                <div class="projects-grid" id="projectsGrid">
+                    <!-- 專案卡片將由JavaScript動態生成 -->
                 </div>
             </div>
         </div>

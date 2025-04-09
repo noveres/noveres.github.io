@@ -1,0 +1,44 @@
+{
+  "projects": [
+    {
+      "id": 1,
+      "category": "mobile",
+      "title": "城市天氣應用",
+      "description": "一款直觀的天氣預報應用，提供即時天氣資訊和預測。",
+      "image": "https://images.unsplash.com/photo-1614680376573-df3480f0c6ff?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+      "demo_link": "#",
+      "code_link": "#",
+      "display_category": "移動應用"
+    },
+    {
+      "id": 2,
+      "category": "web",
+      "title": "街頭音樂播放器",
+      "description": "現代化的網頁音樂播放器，支援多種音頻格式和播放列表管理。",
+      "image": "https://images.unsplash.com/photo-1522542550221-31fd19575a2d?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+      "demo_link": "#",
+      "code_link": "#",
+      "display_category": "Web應用"
+    },
+    {
+      "id": 3,
+      "category": "AI",
+      "title": "業務分析儀表板",
+      "description": "智能數據分析平台，提供實時業務數據可視化和預測分析。",
+      "image": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+      "demo_link": "#",
+      "code_link": "#",
+      "display_category": "數據可視化"
+    },
+    {
+      "id": 4,
+      "category": "mobile",
+      "title": "創意社區平台",
+      "description": "社交媒體應用，連接創意工作者和愛好者的互動平台。",
+      "image": "https://images.unsplash.com/photo-1512486130939-2c4f79935e4f?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+      "demo_link": "#",
+      "code_link": "#",
+      "display_category": "社交媒體"
+    }
+  ]
+}
