@@ -1100,6 +1100,10 @@ footer::before {
         }
     }  
 }
+/*來自swiper-bundle.min.css原版在大尺寸會有1%的偏移*/
+.swiper-slide {
+    width: 101% !important;
+}
 
 @media (max-width: 992px) {
     .container {

@@ -8,7 +8,7 @@
             "title": "虛擬實境恐怖遊戲",
             "category": "遊戲軟體",
             "number": "01",
-            "description": "一款充滿未來感的音樂體驗平台，結合虛擬偶像與音樂串流服務。",
+            "description": "一款氛圍向恐怖遊戲，玩家在虛擬環境中探索、解謎",
             "tech": ["Unreal", "C++","blueprint","PhotoShop"],
             "demoLink": "https://example.com/demo1",
             "codeLink": "https://github.com/example/repo1"
