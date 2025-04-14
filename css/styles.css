@@ -595,7 +595,7 @@ nav {
 
 /* 關於區域 */
 .about-section {
-    background-color: var(--gray);
+    /* background-color: var(--gray); */
     position: relative;
 }
 
@@ -603,22 +603,25 @@ nav {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 4rem;
-    align-items: center;
+    /* align-items: center; */
 }
 
 .about-image {
     position: relative;
-    border-radius: 4px;
-    overflow: hidden;
+    border-radius: 50%; /* 改為圓形 */
+    overflow: hidden; 
     box-shadow: var(--shadow);
+     width: 400px; /* 固定寬度 */
+    height: 400px;
+    margin: 0 auto; /* 置中顯示 */
 }
 
 .about-image img {
     width: 100%;
-    height: auto;
+    height: 100%;
+    object-fit: cover;
     display: block;
-    filter: grayscale(30%);
-    transition: var(--transition);
+    /* transition: var(--transition); */
 }
 
 .about-image:hover img {
@@ -641,6 +644,7 @@ nav {
     opacity: 1;
 }
 
+
 .about-content h3 {
     font-size: 3rem;
     margin-bottom: 1.5rem;
@@ -648,7 +652,7 @@ nav {
     display: inline-block;
 }
 
-.about-content h3::after {
+/* .about-content h3::after {
     content: "";
     position: absolute;
     bottom: 10px;
@@ -657,7 +661,7 @@ nav {
     height: 10px;
     background-color: var(--accent);
     z-index: -1;
-}
+} */
 
 .about-content p {
     margin-bottom: 1.5rem;
@@ -737,7 +741,7 @@ nav {
 
 /* 聯絡區域 */
 .contact-section {
-    background-color: var(--gray);
+    /* background-color: var(--gray); */
     position: relative;
 }
 
@@ -754,7 +758,7 @@ nav {
     display: inline-block;
 }
 
-.contact-info h3::after {
+/* .contact-info h3::after {
     content: "";
     position: absolute;
     bottom: 10px;
@@ -763,7 +767,7 @@ nav {
     height: 10px;
     background-color: var(--accent);
     z-index: -1;
-}
+} */
 
 .contact-info p {
     color: var(--text-secondary);
@@ -816,6 +820,7 @@ nav {
     border-radius: 4px;
     position: relative;
     overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.1); 
 }
 
 .contact-form::before {

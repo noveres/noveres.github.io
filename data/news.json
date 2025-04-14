@@ -10,7 +10,7 @@
             "number": "01",
             "description": "一款氛圍向恐怖遊戲，玩家在虛擬環境中探索、解謎",
             "tech": ["Unreal", "C++","blueprint","PhotoShop"],
-            "demoLink": "https://example.com/demo1",
+            "demoLink": "https://youtu.be/qWVTKj3eSzo?si=EY765HhbGgWva6ET",
             "codeLink": "https://github.com/example/repo1"
         },
         {
@@ -22,8 +22,8 @@
             "category": "應用開發",
             "number": "02",
             "description": "QuickForms是一個類似google表單類的動態問卷工具",
-            "tech": ["Angular", "JAVA", "SpringBoot", "MySQL", "RESTful API"],
-            "demoLink": "https://example.com/demo1",
+            "tech": ["Angular", "JAVA", "SpringBoot", "MySQL", "RESTful API", "AWS"],
+            "demoLink": "http://quickforms.s3-website.eu-north-1.amazonaws.com/home",
             "codeLink": "https://github.com/noveres/QuickForms"
         },
         {

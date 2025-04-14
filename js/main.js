@@ -292,12 +292,12 @@ function updateProjectDetails(slide) {
     
     // 檢查demoLink是否存在且不為空
     if (slide.demoLink && slide.demoLink.trim() !== '') {
-        linksHTML += `<a href="${slide.demoLink}" class="btn" target="_blank">查看demo</a>`;
+        linksHTML += `<a href="${slide.demoLink}" class="btn" target="_blank">查看演示</a>`;
     }
     
     // 檢查codeLink是否存在且不為空
     if (slide.codeLink && slide.codeLink.trim() !== '') {
-        linksHTML += `<a href="${slide.codeLink}" class="project-link" target="_blank">查看CODE</a>`;
+        linksHTML += `<a href="${slide.codeLink}" class="project-link" target="_blank">查看項目</a>`;
     }
     
     linksContainer.innerHTML = linksHTML;
