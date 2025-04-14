@@ -8,7 +8,7 @@
             "title": "虛擬實境恐怖遊戲",
             "category": "遊戲軟體",
             "number": "01",
-            "description": "一款氛圍向恐怖遊戲，玩家在虛擬環境中探索、解謎",
+            "description": "融合教育理念與恐怖風格的遊戲，玩家置身詭譎虛擬空間，透過探索解謎體驗知識學習，鍛鍊觀察判斷與邏輯思維能力。",
             "tech": ["Unreal", "C++","blueprint","PhotoShop"],
             "demoLink": "https://youtu.be/qWVTKj3eSzo?si=EY765HhbGgWva6ET",
             "codeLink": "https://github.com/example/repo1"
@@ -21,8 +21,8 @@
             "title": "動態問卷表單系統 ",
             "category": "應用開發",
             "number": "02",
-            "description": "QuickForms是一個類似google表單類的動態問卷工具",
-            "tech": ["Angular", "JAVA", "SpringBoot", "MySQL", "RESTful API", "AWS"],
+            "description": "QuickForms 是一個類似Google表單的問卷調查系統，採用前後端分離架構設計支持問卷的創建、編輯、發布、回收和統計分析等完整功能。",
+            "tech": ["Angular", "JAVA", "MySQL", "RESTful API", "AWS"],
             "demoLink": "http://quickforms.s3-website.eu-north-1.amazonaws.com/home",
             "codeLink": "https://github.com/noveres/QuickForms"
         },
