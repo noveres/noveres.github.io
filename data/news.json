@@ -23,7 +23,7 @@
             "number": "02",
             "description": "QuickForms 是一個類似Google表單的問卷調查系統，採用前後端分離架構設計支持問卷的創建、編輯、發布、回收和統計分析等完整功能。",
             "tech": ["Angular", "JAVA", "MySQL", "RESTful API", "AWS"],
-            "demoLink": "http://quickforms.s3-website.eu-north-1.amazonaws.com/home",
+            "demoLink": "https://d1ieh0ztqt28xg.cloudfront.net/",
             "codeLink": "https://github.com/noveres/QuickForms"
         },
         {
