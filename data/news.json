@@ -2,16 +2,16 @@
     "slides": [
         {
             "id": 1,
-            "image": "./images/mis-news1.png",
-            "desc": "這不是遊戲，而是你無法登出的噩夢。",
+            "image": "./images/AILINE_BOT.png",
+            "desc": "「噢？一个完美的电线杆。」",
             "time": "07/25/2024",
-            "title": "虛擬實境恐怖遊戲",
-            "category": "遊戲軟體",
+            "title": "AI物業管理LINE Bot",
+            "category": "應用開發",
             "number": "01",
-            "description": "融合教育理念與恐怖風格的遊戲，玩家置身詭譎虛擬空間，透過探索解謎體驗知識學習，鍛鍊觀察判斷與邏輯思維能力。",
-            "tech": ["Unreal", "C++","blueprint","PhotoShop"],
-            "demoLink": "https://youtu.be/qWVTKj3eSzo?si=EY765HhbGgWva6ET",
-            "codeLink": "https://github.com/example/repo1"
+            "description": "AI物業管理LINE Bot，提供物業管理的功能，用來減小管理人員的負擔且易於拓展，可根據不同的需求來訓練模型。",
+            "tech": ["Python", "LINE API", "MySQL" ,"RESTful API","Railway"],
+            "demoLink": "https://line.me/R/ti/p/@937udfiq",
+            "codeLink": "https://github.com/noveres/AI-LINE-BOT"
         },
         {
             "id": 2,
@@ -28,16 +28,16 @@
         },
         {
             "id": 3,
-            "image": "./images/index-news2.png",
-            "desc": "「噢？一个完美的电线杆。」",
+            "image": "./images/mis-news1.png",
+            "desc": "這不是遊戲，而是你無法登出的噩夢。",
             "time": "07/25/2024",
-            "title": "六分街街头异闻 ",
+            "title": "虛擬實境恐怖遊戲",
             "category": "遊戲開發",
             "number": "03",
-            "description": "一個開放世界的街頭探索遊戲，融合現代都市與科幻元素。",
-            "tech": ["Unity", "C#", "Blender", "PhotonEngine", "AWS"],
-            "demoLink": "https://example.com/demo1",
-            "codeLink": "https://github.com/example/repo1"
+            "description": "融合教育理念與恐怖風格的遊戲，玩家置身詭譎虛擬空間，透過探索解謎體驗知識學習，鍛鍊觀察判斷與邏輯思維能力。",
+            "tech": ["Unreal", "C++","blueprint","PhotoShop"],
+            "demoLink": "https://youtu.be/qXsdbeFwIuY",
+            "codeLink": "https://github.com/noveres/mistory3"
         }
 
       
