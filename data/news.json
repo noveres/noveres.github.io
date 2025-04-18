@@ -9,7 +9,7 @@
             "category": "應用開發",
             "number": "01",
             "description": "AI物業管理LINE Bot，提供物業管理的功能，用來減小管理人員的負擔且易於拓展，可根據不同的需求來訓練模型。",
-            "tech": ["Python", "LINE API", "Flask" ,"RESTful API"],
+            "tech": ["Python", "LINE API", "Flask","Railway"],
             "demoLink": "https://line.me/R/ti/p/@937udfiq",
             "codeLink": "https://github.com/noveres/AI-LINE-BOT"
         },
