@@ -15,29 +15,29 @@
         },
         {
             "id": 2,
-            "image": "./images/index.png",
-            "desc": "「噢？難以想像的動態表單編輯體驗」",
-            "time": "07/25/2024",
-            "title": "動態問卷表單系統 ",
-            "category": "應用開發",
-            "number": "02",
-            "description": "QuickForms 是一個類似Google表單的問卷調查系統，採用前後端分離架構設計支持問卷的創建、編輯、發布、回收和統計分析等完整功能。",
-            "tech": ["Angular", "JAVA", "MySQL", "RESTful API", "AWS"],
-            "demoLink": "https://d1ieh0ztqt28xg.cloudfront.net/",
-            "codeLink": "https://github.com/noveres/QuickForms"
-        },
-        {
-            "id": 3,
             "image": "./images/mis-news1.png",
             "desc": "這不是遊戲，而是無法登出的噩夢。",
             "time": "07/25/2024",
             "title": "虛擬實境恐怖遊戲",
             "category": "遊戲開發",
-            "number": "03",
+            "number": "02",
             "description": "融合教育理念與恐怖風格的遊戲，玩家置身詭譎虛擬空間，透過探索解謎體驗知識學習，鍛鍊觀察判斷與邏輯思維能力。",
             "tech": ["Unreal", "C++","blueprint","PhotoShop"],
             "demoLink": "https://youtu.be/qXsdbeFwIuY",
             "codeLink": "https://github.com/noveres/mistory3"
+        },
+        {
+            "id": 3,
+            "image": "./images/index.png",
+            "desc": "「噢？難以想像的動態表單編輯體驗」",
+            "time": "07/25/2024",
+            "title": "動態問卷表單系統 ",
+            "category": "應用開發",
+            "number": "03",
+            "description": "QuickForms 是一個類似Google表單的問卷調查系統，採用前後端分離架構設計支持問卷的創建、編輯、發布、回收和統計分析等完整功能。",
+            "tech": ["Angular", "JAVA", "MySQL", "RESTful API", "AWS"],
+            "demoLink": "https://d1ieh0ztqt28xg.cloudfront.net/",
+            "codeLink": "https://github.com/noveres/QuickForms"
         }
 
       
