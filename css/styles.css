@@ -1067,6 +1067,10 @@ footer::before {
     .container {
         max-width: 1200px;
     }
+    .about-image{
+        width: 450px;
+        height: 450px;
+    }
    
 }
 
@@ -1309,6 +1313,7 @@ footer::before {
     .index-news .news-left .akiswiper .layer .desc {
         transform: translateX(99vw);
     }
+
     @keyframes wordsLoop {
         0% {
             transform: translateX(99vw);
@@ -1412,6 +1417,10 @@ footer::before {
     }
 }
 
+.about-image{
+    width: 350px;
+    height: 350px;
+}
 
 
 /* 動畫效果 */
@@ -1440,4 +1449,12 @@ footer::before {
 
 .delay-3 {
     animation-delay: 0.6s;
+}
+
+@media (max-width: 415px) {
+    .about-image{
+        width: 300px;
+        height: 300px;
+    }
+
 }
