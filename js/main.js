@@ -8,47 +8,7 @@ window.addEventListener('scroll', () => {
     }
 });
 
-// 項目過濾功能
-document.addEventListener('DOMContentLoaded', () => {
-    const filterButtons = document.querySelectorAll('.filter-btn');
-    const projectCards = document.querySelectorAll('.project-card');
-
-    filterButtons.forEach(button => {
-        button.addEventListener('click', () => {
-            // 移除所有按鈕的active類
-            filterButtons.forEach(btn => btn.classList.remove('active'));
-            // 添加當前按鈕的active類
-            button.classList.add('active');
-
-            const category = button.getAttribute('data-category');
-
-            projectCards.forEach(card => {
-                if (category === 'all') {
-                    card.style.display = 'block';
-                    setTimeout(() => {
-                        card.style.opacity = '1';
-                        card.style.transform = 'translateY(0)';
-                    }, 50);
-                } else {
-                    const cardCategory = card.getAttribute('data-category');
-                    if (cardCategory === category) {
-                        card.style.display = 'block';
-                        setTimeout(() => {
-                            card.style.opacity = '1';
-                            card.style.transform = 'translateY(0)';
-                        }, 50);
-                    } else {
-                        card.style.opacity = '0';
-                        card.style.transform = 'translateY(20px)';
-                        setTimeout(() => {
-                            card.style.display = 'none';
-                        }, 300);
-                    }
-                }
-            });
-        });
-    });
-});
+// 項目過濾功能已移至 bindFilterButtons 函數
 
 // 表單驗證
 const contactForm = document.querySelector('#contactForm');
@@ -303,6 +263,101 @@ function updateProjectDetails(slide) {
     linksContainer.innerHTML = linksHTML;
 }
 
+// 加載項目數據
+async function loadProjectsData() {
+    try {
+        const response = await fetch('./data/projects.json');
+        const data = await response.json();
+        return data.projects;
+    } catch (error) {
+        console.error('加載項目數據失敗：', error);
+        return [];
+    }
+}
+
+// 初始化項目卡片
+async function initializeProjects() {
+    const projects = await loadProjectsData();
+    const projectsGrid = document.getElementById('projectsGrid');
+    
+    // 確保 projectsGrid 存在
+    if (!projectsGrid) {
+        console.error('無法找到 projectsGrid 元素');
+        return;
+    }
+
+    // 清空容器
+    projectsGrid.innerHTML = '';
+
+    // 生成項目卡片
+    projects.forEach(project => {
+        const projectHTML = `
+            <div class="project-card" data-category="${project.category}">
+                <div class="project-image">
+                    <img src="${project.image}" alt="${project.alt}">
+                </div>
+                <div class="project-overlay">
+                    <div class="project-category">${project.projectCategory}</div>
+                    <h3 class="project-title">${project.title}</h3>
+                    <div class="project-links">
+                        ${project.demoLink ? `<a href="${project.demoLink}" class="btn" target="_blank" rel="noopener noreferrer">demo</a>` : ''}
+                        ${project.codeLink ? `<a href="${project.codeLink}" class="project-link" target="_blank" rel="noopener noreferrer">CODE</a>` : ''}
+                    </div>
+                </div>
+            </div>
+        `;
+        projectsGrid.innerHTML += projectHTML;
+    });
+
+    // 重新綁定過濾按鈕事件
+    bindFilterButtons();
+}
+
+// 綁定過濾按鈕事件
+function bindFilterButtons() {
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const projectCards = document.querySelectorAll('.project-card');
+
+    filterButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            // 移除所有按鈕的active類
+            filterButtons.forEach(btn => btn.classList.remove('active'));
+            // 添加當前按鈕的active類
+            button.classList.add('active');
+
+            const category = button.getAttribute('data-category');
+
+            projectCards.forEach(card => {
+                if (category === 'all') {
+                    card.style.display = 'block';
+                    setTimeout(() => {
+                        card.style.opacity = '1';
+                        card.style.transform = 'translateY(0)';
+                    }, 50);
+                } else {
+                    const cardCategory = card.getAttribute('data-category');
+                    if (cardCategory === category) {
+                        card.style.display = 'block';
+                        setTimeout(() => {
+                            card.style.opacity = '1';
+                            card.style.transform = 'translateY(0)';
+                        }, 50);
+                    } else {
+                        card.style.opacity = '0';
+                        card.style.transform = 'translateY(20px)';
+                        setTimeout(() => {
+                            card.style.display = 'none';
+                        }, 300);
+                    }
+                }
+            });
+        });
+    });
+}
+
 // 當 DOM 加載完成後初始化
-document.addEventListener('DOMContentLoaded', initializeSwiper);
+document.addEventListener('DOMContentLoaded', () => {
+    initializeSwiper();
+    initializeProjects();
+});
     

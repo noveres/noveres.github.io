@@ -1,0 +1,55 @@
+{
+    "projects": [
+        {
+            "id": 1,
+            "category": "game",
+            "title": "光學教育類應用",
+            "projectCategory": "虛擬實境",
+            "image": "images/photo-1614680376573-df3480f0c6ff.png",
+            "alt": "遊戲開發預覽",
+            "demoLink": "https://www.youtube.com/watch?v=G9EZjnh_qvY&list=PL6ADhasWY6AEsiVdbEF5NBOyvqYrjsnUc&index=5",
+            "codeLink": ""
+        },
+        {
+            "id": 2,
+            "category": "web",
+            "title": "動態問卷表單系統",
+            "projectCategory": "應用開發",
+            "image": "./images/index.png",
+            "alt": "問卷系統預覽",
+            "demoLink": "https://d1ieh0ztqt28xg.cloudfront.net/",
+            "codeLink": "https://github.com/noveres/QuickForms"
+        },
+        {
+            "id": 3,
+            "category": "game",
+            "title": "虛擬實境恐怖遊戲",
+            "projectCategory": "遊戲開發",
+            "image": "./images/mis-news1.png",
+            "alt": "恐怖遊戲預覽",
+            "demoLink": "https://youtu.be/qXsdbeFwIuY",
+            "codeLink": "https://github.com/noveres/mistory3"
+        },
+        {
+            "id": 4,
+            "category": "web",
+            "title": "物業管理系統後台",
+            "projectCategory": "Web應用",
+            "image": "images/photo-1614680376573-1.png",
+            "alt": "物業管理後台預覽",
+            "demoLink": "",
+            "codeLink": "https://github.com/noveres/WuyeGuanli_NG"
+        },
+        {
+            "id": 5,
+            "category": "web",
+            "title": "AI物業管理LINE Bot",
+            "projectCategory": "應用開發",
+            "image": "./images/AILINE_BOT.png",
+            "alt": "問卷系統預覽",
+            "demoLink": "https://line.me/R/ti/p/@937udfiq",
+            "codeLink": "https://github.com/noveres/AI-LINE-BOT"
+            
+        }
+    ]
+}
