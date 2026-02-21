@@ -199,7 +199,7 @@ async function initializeSwiper() {
                         // 獲取當前幻燈片索引（從0開始）
                         const currentIndex = this.realIndex;
                         const totalSlides = this.slides.length - this.loopedSlides * 2;
-                        console.log(`當前是第 ${currentIndex + 1}/${totalSlides} 張`);
+                        // console.log(`當前是第 ${currentIndex + 1}/${totalSlides} 張`);
 
                         // 更新描述的活動狀態
                         const descriptions = document.querySelectorAll('.akiswiper .desc');
