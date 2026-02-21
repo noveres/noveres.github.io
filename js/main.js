@@ -115,7 +115,7 @@ skillCategories.forEach(category => {
     });
 });
 
-    // 首頁輪播圖片
+// 首頁輪播圖片
        
 // 加載新聞數據
 async function loadNewsData() {
@@ -300,8 +300,8 @@ async function initializeProjects() {
                     <div class="project-category">${project.projectCategory}</div>
                     <h3 class="project-title">${project.title}</h3>
                     <div class="project-links">
-                        ${project.demoLink ? `<a href="${project.demoLink}" class="btn" target="_blank" rel="noopener noreferrer">demo</a>` : ''}
-                        ${project.codeLink ? `<a href="${project.codeLink}" class="project-link" target="_blank" rel="noopener noreferrer">CODE</a>` : ''}
+                        ${project.demoLink ? `<a href="${project.demoLink}" class="btn" target="_blank" rel="noopener noreferrer">查看演示</a>` : ''}
+                        ${project.codeLink ? `<a href="${project.codeLink}" class="project-link" target="_blank" rel="noopener noreferrer">查看項目</a>` : ''}
                     </div>
                 </div>
             </div>
